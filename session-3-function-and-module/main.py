@@ -18,6 +18,10 @@ from my_module import greet as greet_func
 
 print(greet_func('Adam'))
 
-from my_module import * # NOT RECOMMEND
+# from my_module import * # NOT RECOMMEND
 
-greet
+# greet
+
+if __name__ == '__main__':
+    print('The main file is executed directly')
+    print(greet_func('Adam'))
