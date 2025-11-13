@@ -44,6 +44,9 @@ class A:
         
         
 class B:
+    def greet(self):
+        print('B')
+
     def run(self):
         print('run')
         
@@ -54,6 +57,7 @@ class C(A, B):
 c = C()
 c.greet()
 c.run()
+
 
 ## Polymorphism & abstract
 # same method, different implementation in different class

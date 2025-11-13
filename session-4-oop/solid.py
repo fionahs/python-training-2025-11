@@ -137,6 +137,7 @@ class PostgresDatabase():
     
 class UserDatabaseService():
     def __init__(self):
+        # self.db = MySqlDatabase() # tightly coupled issue
         self.db = PostgresDatabase() # tightly coupled issue
     
     def connect_to_db(self):
