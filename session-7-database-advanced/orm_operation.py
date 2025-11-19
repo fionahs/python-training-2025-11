@@ -25,7 +25,8 @@ def get_customer_by_id(id):
     with Session(engine) as session:
         stmt = select(Customer).where(Customer.id == id)
         result = session.execute(stmt).scalar()
-        print(result.email, result.name)
+        if result:
+            print(result.email, result.name)
         
 def get_customer_order_stats():
     with Session(engine) as session:

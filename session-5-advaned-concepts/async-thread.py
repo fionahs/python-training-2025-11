@@ -10,7 +10,7 @@ def fake_blocking_io_task(name):
 async def fake_non_blocking_IO_task(name):
     print(f"{name} start async I/O task")
     await asyncio.sleep(2)
-    asyncio.to_thread()
+    # asyncio.to_thread()
     print(f'{name} done')
     
 def execute_blocking_tasks():

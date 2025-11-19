@@ -1,4 +1,4 @@
-# Python Interview Questions & Coding Challenges - Session 6
+# Python Interview Questions & Coding Challenges - Session 7
 
 ## Concept Questions
 
