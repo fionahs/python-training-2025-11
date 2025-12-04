@@ -20,7 +20,7 @@ def get_weather_service(db: Session = Depends(get_db)) -> WeatherService:
 
 @app.get("/")
 def root():
-    return {"message": "Weather API 2.0"}
+    return {"message": "Weather API 3.0"}
 
 
 @app.get("/weather/{city}")
