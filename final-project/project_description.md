@@ -101,6 +101,7 @@ Use Redis or in-memory cache.
 - Validate all inputs
 - Auto-geocode address if coordinates not provided (on create)
 
+
 ### 2.2 Authentication & Authorization
 
 **JWT Two-Token Pattern:**
@@ -146,6 +147,7 @@ Three roles:
 - Implement decorator/middleware for permission checking
 - Hash passwords with bcrypt
 
+
 ### 2.3 Batch CSV Import
 
 **POST /api/admin/stores/import**
@@ -179,6 +181,7 @@ Accept CSV file upload with store data.
 **DELETE /api/admin/users/{user_id}** - Deactivate user
 
 ---
+
 
 ## 3. Database Requirements
 
