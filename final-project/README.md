@@ -337,10 +337,28 @@ final-project/
 
 ### Step 1: Prepare Your Code
 
+**If you don't have write access to the repository (e.g., it's someone else's repo):**
+1. Fork the repository on GitHub (click "Fork" button)
+2. Update your local remote to point to your fork:
+   ```bash
+   git remote set-url origin https://github.com/YOUR_USERNAME/python-training-2025-11.git
+   ```
+
+**Commit and push your code:**
 ```bash
 cd final-project
 git add .
-git commit -m "Ready for deployment"
+git commit -m "Complete Store Locator API - ready for deployment
+
+- All 19 requirements implemented
+- Caching (geocoding + search results)
+- User management endpoints
+- Rate limiting
+- Bulk CSV import
+- 77% test coverage
+- Deployment files (Procfile, runtime.txt)
+- Complete documentation in README"
+
 git push origin main
 ```
 
