@@ -362,18 +362,19 @@ git commit -m "Complete Store Locator API - ready for deployment
 git push origin main
 ```
 
-### Step 2: Create PostgreSQL Database
+### Step 2: Create Cloud-based PostgreSQL Database
 
 1. **Sign up/Login** at [render.com](https://render.com)
-2. Click **"New +"** → **"PostgreSQL"**
+2. Click **"New +"** → **"Postgres"**
 3. Fill in:
-   - **Name**: `store-locator-db`
+   - **Name**: `postgres-store-locator`
    - **Database**: `store_locator`
    - **Region**: Oregon (US West) or closest to you
-   - **PostgreSQL Version**: 15
+   - **PostgreSQL Version**: 18
    - **Plan**: Free
 4. Click **"Create Database"**
 5. ⚠️ **IMPORTANT**: Copy the **Internal Database URL** from the database info page
+   - Used for communication between services within Render's network
    - Format: `postgresql://user:password@hostname/database`
    - You'll need this in Step 4
 
