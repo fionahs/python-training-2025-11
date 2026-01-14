@@ -1,0 +1,4 @@
+store_id,name,store_type,latitude,longitude,address_street,address_city,address_state,address_postal_code,phone,services,hours_monday,hours_tuesday,hours_wednesday,hours_thursday,hours_friday,hours_saturday,hours_sunday
+S9001,Test Import Store 1,regular,40.7580,-73.9855,123 Test St,New York,NY,10001,212-555-0001,pharmacy|pickup,9:00 AM - 9:00 PM,9:00 AM - 9:00 PM,9:00 AM - 9:00 PM,9:00 AM - 9:00 PM,9:00 AM - 9:00 PM,10:00 AM - 6:00 PM,closed
+S9002,Test Import Store 2,flagship,40.7489,-73.9680,456 Import Ave,New York,NY,10002,212-555-0002,pharmacy|optical|pickup,8:00 AM - 10:00 PM,8:00 AM - 10:00 PM,8:00 AM - 10:00 PM,8:00 AM - 10:00 PM,8:00 AM - 10:00 PM,9:00 AM - 7:00 PM,10:00 AM - 6:00 PM
+S0001,Updated Existing Store,regular,40.7128,-74.0060,789 Update St,New York,NY,10003,212-555-0003,pharmacy|returns,9:00 AM - 8:00 PM,9:00 AM - 8:00 PM,9:00 AM - 8:00 PM,9:00 AM - 8:00 PM,9:00 AM - 8:00 PM,10:00 AM - 5:00 PM,closed
