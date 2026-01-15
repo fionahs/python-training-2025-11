@@ -1,14 +1,23 @@
 """
 Test configuration and fixtures
 """
+import os
 import pytest
 from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+
+# Set testing mode BEFORE importing app modules
+os.environ["TESTING"] = "true"
+
 from app.main import app
 from app.database import Base, get_db
 from app.models import User, Role, Permission, Store, store_services
 from app.utils.auth import get_password_hash
+from app.config import get_settings
+
+# Clear settings cache and reload with TESTING=true
+get_settings.cache_clear()
 
 # Test database URL (using SQLite for testing)
 SQLALCHEMY_TEST_DATABASE_URL = "sqlite:///./test.db"

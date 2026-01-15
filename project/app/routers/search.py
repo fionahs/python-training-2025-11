@@ -10,14 +10,25 @@ from app.schemas import StoreSearchRequest, StoreSearchResponse, StoreSearchResu
 from app.utils.geocoding import geocode_address, geocode_postal_code
 from app.utils.distance import calculate_bounding_box, calculate_distance, is_store_open_now
 from app.utils.cache import cache, SEARCH_TTL
+from app.config import get_settings
 
 router = APIRouter(prefix="/api/stores", tags=["Store Search"])
 limiter = Limiter(key_func=get_remote_address)
+settings = get_settings()
+
+
+def apply_rate_limit(limit_string):
+    """Decorator that applies rate limiting only if not in testing mode"""
+    def decorator(func):
+        if settings.TESTING:
+            return func
+        return limiter.limit(limit_string)(func)
+    return decorator
 
 
 @router.post("/search", response_model=StoreSearchResponse)
-@limiter.limit("10/minute")
-@limiter.limit("100/hour")
+@apply_rate_limit("10/minute")
+@apply_rate_limit("100/hour")
 def search_stores(request: Request, search_request: StoreSearchRequest, db: Session = Depends(get_db)):
     """
     Search for nearby stores by address, postal code, or coordinates.

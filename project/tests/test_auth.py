@@ -65,3 +65,11 @@ class TestAuthenticationEndpoints:
         )
 
         assert response.status_code == 401
+
+    def test_refresh_token_invalid(self, client):
+        """Test refresh with invalid token"""
+        response = client.post("/api/auth/refresh", json={
+            "refresh_token": "invalid_refresh_token"
+        })
+
+        assert response.status_code == 401

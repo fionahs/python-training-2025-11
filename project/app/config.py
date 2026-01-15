@@ -20,6 +20,7 @@ class Settings(BaseSettings):
 
     # App
     DEBUG: bool = True
+    TESTING: bool = False
 
     class Config:
         env_file = ".env"

@@ -131,6 +131,16 @@ class TestStoreEndpoints:
 
         assert response.status_code == 403
 
+    def test_update_nonexistent_store(self, client, marketer_token):
+        """Test updating a non-existent store returns 404"""
+        response = client.patch(
+            "/api/stores/S9999",
+            json={"name": "Does Not Exist"},
+            headers={"Authorization": f"Bearer {marketer_token}"}
+        )
+
+        assert response.status_code == 404
+
     def test_delete_store_soft_delete(self, client, marketer_token, test_store):
         """Test soft delete of store"""
         response = client.delete(

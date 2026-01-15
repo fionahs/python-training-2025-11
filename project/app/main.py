@@ -8,8 +8,8 @@ from app.routers import stores, auth, search, admin
 
 settings = get_settings()
 
-# Initialize rate limiter
-limiter = Limiter(key_func=get_remote_address)
+# Initialize rate limiter (disabled in testing mode)
+limiter = Limiter(key_func=get_remote_address, enabled=not settings.TESTING)
 
 app = FastAPI(
     title="Store Locator API",

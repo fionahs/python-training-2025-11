@@ -9,13 +9,24 @@ from app.schemas import LoginRequest, Token, RefreshRequest, UserResponse
 from app.utils.auth import verify_password
 from app.utils.jwt import create_access_token, create_refresh_token, decode_token, hash_token
 from app.dependencies import get_current_user
+from app.config import get_settings
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 limiter = Limiter(key_func=get_remote_address)
+settings = get_settings()
+
+
+def apply_rate_limit(limit_string):
+    """Decorator that applies rate limiting only if not in testing mode"""
+    def decorator(func):
+        if settings.TESTING:
+            return func
+        return limiter.limit(limit_string)(func)
+    return decorator
 
 
 @router.post("/login", response_model=Token)
-@limiter.limit("10/minute")  # Rate limit for login to prevent brute force
+@apply_rate_limit("10/minute")  # Rate limit for login to prevent brute force
 def login(request: Request, login_data: LoginRequest, db: Session = Depends(get_db)):
     """
     Login endpoint - returns access token and refresh token
